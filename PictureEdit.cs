@@ -46,7 +46,6 @@ namespace PictureViewer
         private void btnDelete_Click(object sender, EventArgs e)
         {
             var listOfPictures = _fileHelper.DeserializeFromFile();
-            int selectedPictureIndex = Convert.ToInt32(dgvPictureList.SelectedRows[0].Cells[0].Value);
 
             if (dgvPictureList.SelectedRows.Count == 0)
             {
@@ -54,6 +53,8 @@ namespace PictureViewer
             }
             else
             {
+                int selectedPictureIndex = Convert.ToInt32(dgvPictureList.SelectedRows[0].Cells[0].Value);
+
                 listOfPictures.RemoveAll(x => x.Number == selectedPictureIndex);
                 _fileHelper.SerializeToFile(listOfPictures);
 

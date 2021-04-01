@@ -37,7 +37,9 @@ namespace PictureViewer
         private void LoadListOfPictures()
         {
             var listOfPictures = _fileHelper.DeserializeFromFile();
-            pbViewer.ImageLocation = listOfPictures[0].PicturePath;
+
+            if (listOfPictures.Count != 0)
+                pbViewer.ImageLocation = listOfPictures[0].PicturePath;
         }
 
         private void btnEditPictures_Click(object sender, EventArgs e)
